@@ -38,12 +38,13 @@ import example4, example5, example6, example7
 import team0, team1, team2, team3, team4
 import team5, team6, team7, team8, team9
 import team10, team11, team12, team13, team14
-betray = example1
+betray = example0
 collude = example0
 
 modules = [example0, example1, example2, example3, example4, example5, example6, example7,
 team0, team1, team2, team3, team4, team5, team6, team7, team8, team9, team10, 
 team11, team12, team13, team14]
+
 for module in modules:
     reload(module)
     print ('reloaded',module)
@@ -54,12 +55,12 @@ for module in modules:
 def main_play(modules):
     '''main_play plays a tournament and outputs results to screen and file.
     This function is called once when this file is executed.
-    modules: a list of modules such as [team1, team2]    
+    modules: a list of modules such as [team1, team2]   
     
     Returns:
         scores:
         moves:
-        sections: a list of [str, str, str, list of str]    
+        sections: a list of [str, str, str, list of str]
             '''
     scores, moves = play_tournament(modules)
     section0, section1, section2, section3 = make_reports(modules, scores, moves)
@@ -124,10 +125,10 @@ def play_round(player1, player2, score1, score2, moves1, moves2):
     Returns a 2-tuple with score1 and score2 incremented by this round
     '''
     
-    RELEASE = 0 # (R, "reward" in literature) when both players collude
-    TREAT = 100 # (T, "temptation" in literature) when you betray your partner
-    SEVERE_PUNISHMENT = -500 # (S, "sucker" in literature) when your partner betrays you
-    PUNISHMENT = -250 # (P) when both players betray each other
+    RELEASE = 200 # (R, "reward" in literature) when both players collude
+    TREAT = 300 # (T, "temptation" in literature) when you betray your partner
+    SEVERE_PUNISHMENT = -200 # (S, "sucker" in literature) when your partner betrays you
+    PUNISHMENT = -100 # (P) when both players betray each other
     
     # Keep T > R > P > S to be a Prisoner's Dilemma
     # Keep 2R > T + S to be an Iterative Prisoner's Dilemma
